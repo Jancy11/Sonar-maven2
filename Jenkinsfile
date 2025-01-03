@@ -1,10 +1,10 @@
 pipeline {
     agent any
     tools {
-        maven 'sonarmaven' // Ensure this matches the Maven configuration in Jenkins
+        maven 'Sonarmaven' // Ensure this matches the Maven configuration in Jenkins
     }
     environment {
-        SONAR_TOKEN = credentials('Sonarqube-token') // Replace with your credentials ID for the SonarQube token
+        SONAR_TOKEN = credentials('sonarqube-token') // Replace with your credentials ID for the SonarQube token
     }
     stages {
         stage('Checkout') {
@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Build and Test') {
             steps {
-                 bat 'mvn clean verify' // Run tests and generate JaCoCo reports
+                bat 'mvn clean verify' // Run tests and generate JaCoCo reports
             }
         }
         stage('SonarQube Analysis') {
@@ -27,7 +27,6 @@ pipeline {
                         -Dsonar.tests=src/test/java \
                         -Dsonar.junit.reportPaths=target/surefire-reports \
                         -Dsonar.jacoco.reportPaths=target/site/jacoco/jacoco.xml \
-                        -Dsonar.pmd.reportPaths=target/pmd-duplicates.xml
                         -Dsonar.host.url=http://localhost:9000 \
                         -Dsonar.login=%SONAR_TOKEN%
                     """
