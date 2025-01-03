@@ -27,6 +27,7 @@ pipeline {
                         -Dsonar.tests=src/test/java \
                         -Dsonar.junit.reportPaths=target/surefire-reports \
                         -Dsonar.jacoco.reportPaths=target/site/jacoco/jacoco.xml \
+                        -Dsonar.pmd.reportPaths=target/pmd-duplicates.xml
                         -Dsonar.host.url=http://localhost:9000 \
                         -Dsonar.login=%SONAR_TOKEN%
                     """
