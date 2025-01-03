@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Build and Test') {
             steps {
-               bat 'mvn clean verify pmd:pmd' // Run tests and generate JaCoCo reports
+                 bat 'mvn clean verify' // Run tests and generate JaCoCo reports
             }
         }
         stage('SonarQube Analysis') {
