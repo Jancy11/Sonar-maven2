@@ -78,7 +78,7 @@
                         <configuration>
                             <!-- PMD Configuration for Duplication -->
                             <rulesets>
-                                <ruleset>rulesets/duplicates.xml</ruleset>
+                                <ruleset>rulesets/java/duplicates.xml</ruleset>
                             </rulesets>
                             <outputFile>target/pmd-duplicates.xml</outputFile>
                             <generateHtmlReport>false</generateHtmlReport>
